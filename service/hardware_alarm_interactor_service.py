@@ -25,3 +25,9 @@ class HardwareAlarmInteractor(Observer):
             if self.authenticator_service.authenticate(pressed_keys):
                 print("Password correct. Requesting that the alarm be silenced.")
                 self.security_micro_service_client.silence_alarm()
+        elif pressed_keys == '*':
+            print("Arm request received.")
+            self.security_micro_service_client.arm_alarm()
+        elif pressed_keys == 'D':
+            print("Disarm request received.")
+            self.security_micro_service_client.disarm_alarm()
