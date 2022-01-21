@@ -1,7 +1,3 @@
-# make this class a 'bean' inject by main (which should be extracted to an orchestrator perhaps ?)
-# use this class in authenticator service (change its name to hardware_alarm_silencer,
-# that more accurately saying what it does) once the password is correct.
-# You could even extract another class that checks the password that you can call authenticator_service !
 import requests
 
 

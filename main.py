@@ -1,6 +1,7 @@
 import sys
 
 from authenticator_service import AuthenticatorService
+from hardware_alarm_interactor import HardwareAlarmInteractor
 from keypad import Keypad
 from security_micro_service_client import SecurityMicroServiceClient
 
@@ -13,9 +14,10 @@ if __name__ == '__main__':
     keypad = Keypad()
     security_micro_service_client = SecurityMicroServiceClient(security_micro_service_host,
                                                                security_micro_service_port)
-    concrete_observer = AuthenticatorService(subject=keypad,
-                                             keypad_commands=['*', 'D'],
-                                             password=password,
-                                             security_micro_service_client=security_micro_service_client)
+    authenticator_service = AuthenticatorService(password)
+    hardware_alarm_interactor = HardwareAlarmInteractor(subject=keypad,
+                                                        keypad_commands=['*', 'D'],
+                                                        authenticator_service=authenticator_service,
+                                                        security_micro_service_client=security_micro_service_client)
 
     keypad._get_pressed_keys()
