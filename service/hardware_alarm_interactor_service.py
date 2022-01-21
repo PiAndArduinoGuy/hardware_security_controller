@@ -1,4 +1,4 @@
-from authenticator_service import AuthenticatorService
+from service.authenticator_service import AuthenticatorService
 from observer_design_pattern.observer import Observer
 from observer_design_pattern.subject import Subject
 

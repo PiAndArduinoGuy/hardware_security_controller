@@ -1,8 +1,8 @@
 import sys
 
-from authenticator_service import AuthenticatorService
-from hardware_alarm_interactor import HardwareAlarmInteractor
-from keypad import Keypad
+from service.authenticator_service import AuthenticatorService
+from service.hardware_alarm_interactor_service import HardwareAlarmInteractor
+from service.keypad_service import Keypad
 from security_micro_service_client import SecurityMicroServiceClient
 
 if __name__ == '__main__':
