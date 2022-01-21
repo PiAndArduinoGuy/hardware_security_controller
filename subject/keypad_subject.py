@@ -7,9 +7,9 @@ import digitalio
 from observer_design_pattern.subject import Subject
 
 
-class Keypad(Subject):
+class KeypadSubject(Subject):
     def __init__(self):
-        super(Keypad, self).__init__()
+        super(KeypadSubject, self).__init__()
         rows = [digitalio.DigitalInOut(x) for x in (board.D26, board.D19, board.D13, board.D6)]
         cols = [digitalio.DigitalInOut(x) for x in (board.D5, board.D20, board.D11, board.D9)]
         keys = ((1, 2, 3, "A"),
