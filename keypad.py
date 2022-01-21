@@ -44,7 +44,6 @@ class Keypad(Subject):
                 if _is_accept_key(pressed_key):
                     self.set_state(self.create_string_from_keys_array(entered_keys_array))
                     entered_keys_array = []
-                    print(f"New latest_entered_keys_string captured - {self.state}")
                 else:
                     entered_keys_array.append(pressed_key)
             time.sleep(0.2)
