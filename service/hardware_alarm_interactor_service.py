@@ -1,5 +1,6 @@
 from security_micro_service_client import SecurityMicroServiceClient
 from service.authenticator_service import AuthenticatorService
+from subject.message_subject import MessageSubject
 
 
 class HardwareAlarmInteractorService:
