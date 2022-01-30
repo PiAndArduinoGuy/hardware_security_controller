@@ -1,14 +1,16 @@
 import requests
 
+from properties.hardware_security_controller_properties import HardwareSecurityControllerProperties
 from subject.message_subject import MessageSubject
 
 
 class SecurityMicroServiceClient:
     def __init__(self,
-                 security_micro_service_host,
-                 security_micro_service_port,
+                 hardware_security_controller_properties: HardwareSecurityControllerProperties,
                  message_subject: MessageSubject):
-        self.base_security_micro_service_url = 'http://' + security_micro_service_host + ":" + security_micro_service_port + \
+        self.base_security_micro_service_url = 'http://' + \
+                                               hardware_security_controller_properties.get_security_micro_service_host() \
+                                               + ":" + hardware_security_controller_properties.get_security_micro_service_port() + \
                                                '/security'
         self.message_subject = message_subject
 
@@ -24,8 +26,7 @@ class SecurityMicroServiceClient:
         response = requests.put(self.base_security_micro_service_url + '/disarm-alarm')
         self.handle_response_with_messages(response, "Alarm disarmed.", "Failed to disarm.")
 
-
-    def handle_response_with_messages(self,response, success_message: str, failure_message: str):
+    def handle_response_with_messages(self, response, success_message: str, failure_message: str):
         if response.ok:
             print(success_message)
             self.message_subject.set_message(success_message)

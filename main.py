@@ -1,25 +1,23 @@
-import sys
-
 from observer.keypad_observer import KeypadObserver
 from observer.message_observer import MessageObserver
-from subject.keypad_subject import KeypadSubject
+from properties.hardware_security_controller_command_line_properties import \
+    HardwareSecurityControllerCommandLineProperties
+from properties.hardware_security_controller_properties import HardwareSecurityControllerProperties
 from security_micro_service_client import SecurityMicroServiceClient
 from service.authenticator_service import AuthenticatorService
 from service.hardware_alarm_interactor_service import HardwareAlarmInteractorService
+from subject.keypad_subject import KeypadSubject
 from subject.message_subject import MessageSubject
 
 if __name__ == '__main__':
-    command_line_arguments = sys.argv[1:]
-    password = command_line_arguments[0]
-    security_micro_service_host = command_line_arguments[1]
-    security_micro_service_port = command_line_arguments[2]
+    hardware_security_controller_properties: HardwareSecurityControllerProperties = \
+        HardwareSecurityControllerCommandLineProperties()
 
     keypad = KeypadSubject()
     message_subject = MessageSubject()
-    security_micro_service_client = SecurityMicroServiceClient(security_micro_service_host,
-                                                               security_micro_service_port,
+    security_micro_service_client = SecurityMicroServiceClient(hardware_security_controller_properties,
                                                                message_subject)
-    authenticator_service = AuthenticatorService(password)
+    authenticator_service = AuthenticatorService(hardware_security_controller_properties)
 
     hardware_alarm_interactor_service = HardwareAlarmInteractorService(authenticator_service,
                                                                        security_micro_service_client)
