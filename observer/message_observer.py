@@ -3,6 +3,9 @@ import time
 from rpi_lcd import LCD
 
 from observer_design_pattern.observer import Observer
+import logging
+
+LOGGER = logging.getLogger(__name__)
 
 
 class MessageObserver(Observer):
@@ -29,4 +32,4 @@ class MessageObserver(Observer):
         self.lcd.text(first_row_text, 1)
         self.lcd.text(second_row_text, 2)
         if text[32:] is not '':
-            print(f"Could not fit '{text[32:]}' onto display.")
+            LOGGER.error(f"Could not fit '%s' onto display.", text[32:])

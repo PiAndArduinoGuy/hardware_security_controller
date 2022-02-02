@@ -1,8 +1,11 @@
+import logging
+
 import requests
 
 from properties.hardware_security_controller_properties import HardwareSecurityControllerProperties
 from subject.message_subject import MessageSubject
 
+LOGGER = logging.getLogger(__name__)
 
 class SecurityMicroServiceClient:
     def __init__(self,
@@ -28,9 +31,9 @@ class SecurityMicroServiceClient:
 
     def handle_response_with_messages(self, response, success_message: str, failure_message: str):
         if response.ok:
-            print(success_message)
+            LOGGER.info(success_message)
             self.message_subject.set_message(success_message)
         else:
-            print(f"{failure_message} Response code was {response.status_code} "
-                  f"with response body {response.json()}")
+            LOGGER.info("%s Response code was %s with response body %s", failure_message, response.status_code,
+                        response.json())
             self.message_subject.set_message(failure_message)

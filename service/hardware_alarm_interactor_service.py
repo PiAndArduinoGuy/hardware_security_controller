@@ -1,6 +1,9 @@
+import logging
+
 from security_micro_service_client import SecurityMicroServiceClient
 from service.authenticator_service import AuthenticatorService
-from subject.message_subject import MessageSubject
+
+LOGGER = logging.getLogger(__name__)
 
 
 class HardwareAlarmInteractorService:
@@ -13,13 +16,13 @@ class HardwareAlarmInteractorService:
 
     def handle_request(self, request):
         if request not in self.commands:
-            print("Password detected.")
+            LOGGER.info("Password detected.")
             if self.authenticator_service.authenticate(request):
-                print("Password correct. Requesting that the alarm be silenced.")
+                LOGGER.info("Password correct. Requesting that the alarm be silenced.")
                 self.security_micro_service_client.silence_alarm()
         elif request == '*':
-            print("Arm request received.")
+            LOGGER.info("Arm request received.")
             self.security_micro_service_client.arm_alarm()
         elif request == 'D':
-            print("Disarm request received.")
+            LOGGER.info("Disarm request received.")
             self.security_micro_service_client.disarm_alarm()

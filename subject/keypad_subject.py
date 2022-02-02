@@ -5,7 +5,9 @@ import board
 import digitalio
 
 from observer_design_pattern.subject import Subject
+import logging
 
+LOGGER = logging.getLogger(__name__)
 
 class KeypadSubject(Subject):
     def __init__(self):
@@ -37,7 +39,7 @@ class KeypadSubject(Subject):
             return len(pressed_keys) == 0
 
         entered_keys_array = []
-        print('Listening for keypad presses...')
+        LOGGER.info('Listening for keypad presses...')
         while True:
             if not _keys_not_yet_pressed(self.keypad.pressed_keys):
                 pressed_key = self.keypad.pressed_keys[0]
