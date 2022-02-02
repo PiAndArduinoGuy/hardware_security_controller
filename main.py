@@ -8,11 +8,12 @@ from service.authenticator_service import AuthenticatorService
 from service.hardware_alarm_interactor_service import HardwareAlarmInteractorService
 from subject.keypad_subject import KeypadSubject
 from subject.message_subject import MessageSubject
+from logging_setup import LoggingSetup
 
 if __name__ == '__main__':
     hardware_security_controller_properties: HardwareSecurityControllerProperties = \
         HardwareSecurityControllerCommandLineProperties()
-
+    logging_setup = LoggingSetup(hardware_security_controller_properties.get_logging_file_location())
     keypad = KeypadSubject()
     message_subject = MessageSubject()
     security_micro_service_client = SecurityMicroServiceClient(hardware_security_controller_properties,

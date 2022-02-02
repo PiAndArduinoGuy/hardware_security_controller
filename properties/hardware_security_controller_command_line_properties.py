@@ -14,11 +14,11 @@ class HardwareSecurityControllerCommandLineProperties(HardwareSecurityController
         self.arguments = vars(parser.parse_args())
         self.set_hardware_security_controller_properties()
 
-    def set_security_micro_service_host(self):
-        self._security_micro_service_host = self.arguments["security_micro_service_host"]
+    def set_security_micro_service_host_ip(self):
+        self._security_micro_service_host_ip = self.arguments["security_micro_service_host_ip"]
 
-    def set_security_micro_service_port(self):
-        self._security_micro_service_port = self.arguments["security_micro_service_port"]
+    def set_security_micro_service_host_port(self):
+        self._security_micro_service_host_port = self.arguments["security_micro_service_host_port"]
 
     def set_password(self):
         self._password = self.arguments["password"]

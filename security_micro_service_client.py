@@ -7,13 +7,14 @@ from subject.message_subject import MessageSubject
 
 LOGGER = logging.getLogger(__name__)
 
+
 class SecurityMicroServiceClient:
     def __init__(self,
                  hardware_security_controller_properties: HardwareSecurityControllerProperties,
                  message_subject: MessageSubject):
         self.base_security_micro_service_url = 'http://' + \
-                                               hardware_security_controller_properties.get_security_micro_service_host() \
-                                               + ":" + hardware_security_controller_properties.get_security_micro_service_port() + \
+                                               hardware_security_controller_properties.get_security_micro_service_host_ip() \
+                                               + ":" + hardware_security_controller_properties.get_security_micro_service_host_port() + \
                                                '/security'
         self.message_subject = message_subject
 
