@@ -1,5 +1,5 @@
 services:
-  app:
+  hardware-security-contoller:
     image: piandarduinoguy/hardware-security-controller
     privileged: true
     environment:
