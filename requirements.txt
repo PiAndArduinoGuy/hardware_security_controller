@@ -1,0 +1,4 @@
+requests==2.27.1
+adafruit-blinka==6.20.1
+adafruit-circuitpython-matrixkeypad==1.2.6
+RPi.GPIO==0.7.0
