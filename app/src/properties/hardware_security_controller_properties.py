@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.properties.validation.harware_security_controller_properties_validator import \
+from properties.validation.harware_security_controller_properties_validator import \
     HardwareSecurityControllerPropertiesValidator
 
 

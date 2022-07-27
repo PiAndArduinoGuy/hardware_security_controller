@@ -1,7 +1,7 @@
-from src.observer_design_pattern.observer import Observer
-from src.observer_design_pattern.subject import Subject
+from observer_design_pattern.observer import Observer
+from observer_design_pattern.subject import Subject
 
-from src.service.hardware_alarm_interactor_service import HardwareAlarmInteractorService
+from service.hardware_alarm_interactor_service import HardwareAlarmInteractorService
 import logging
 LOGGER = logging.getLogger(__name__)
 

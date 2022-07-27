@@ -1,4 +1,4 @@
-from src.properties.hardware_security_controller_properties import HardwareSecurityControllerProperties
+from properties.hardware_security_controller_properties import HardwareSecurityControllerProperties
 
 
 class AuthenticatorService:

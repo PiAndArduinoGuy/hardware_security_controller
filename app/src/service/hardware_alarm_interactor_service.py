@@ -1,7 +1,7 @@
 import logging
 
-from src.security_micro_service_client import SecurityMicroServiceClient
-from src.service.authenticator_service import AuthenticatorService
+from security_micro_service_client import SecurityMicroServiceClient
+from service.authenticator_service import AuthenticatorService
 
 LOGGER = logging.getLogger(__name__)
 

@@ -1,4 +1,7 @@
 import logging
+import os
+
+LOGGER = logging.getLogger(__name__)
 
 class LoggingSetup():
     def __init__(self, logging_file_directory: str):

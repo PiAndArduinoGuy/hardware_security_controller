@@ -1,10 +1,11 @@
-from hardware_security_controller_properties import HardwareSecurityControllerProperties
+from properties.hardware_security_controller_properties import HardwareSecurityControllerProperties
 from os import environ
 
 
 class HardwareSecurityControllerEnvironmentVariableProperties(HardwareSecurityControllerProperties):
     def __init__(self):
         super().__init__()
+        self.set_hardware_security_controller_properties()
 
     def set_security_micro_service_host_ip(self):
         self._security_micro_service_host_ip = environ['SECURITY_MICRO_SERVICE_HOST_IP']

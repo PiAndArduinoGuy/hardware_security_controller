@@ -1,0 +1,7 @@
+requests==2.27.1
+adafruit-blinka==6.20.1
+adafruit-circuitpython-matrixkeypad==1.2.6
+# https://sourceforge.net/p/raspberry-gpio-python/tickets/187/
+# bug with gcc compiler version 10 and any prior version of below
+RPi.GPIO==0.7.1a2
+rpi-lcd==0.0.2

@@ -2,7 +2,7 @@ import time
 
 from rpi_lcd import LCD
 
-from src.observer_design_pattern.observer import Observer
+from observer_design_pattern.observer import Observer
 import logging
 
 LOGGER = logging.getLogger(__name__)
