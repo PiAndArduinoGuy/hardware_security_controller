@@ -1,4 +1,4 @@
-from observer_design_pattern.subject import Subject
+from src.observer_design_pattern.subject import Subject
 
 
 class MessageSubject(Subject):

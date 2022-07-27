@@ -4,7 +4,7 @@ import adafruit_matrixkeypad
 import board
 import digitalio
 
-from observer_design_pattern.subject import Subject
+from src.observer_design_pattern.subject import Subject
 import logging
 
 LOGGER = logging.getLogger(__name__)

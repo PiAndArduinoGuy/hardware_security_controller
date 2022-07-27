@@ -1,4 +1,4 @@
-from properties.validation.hardware_security_controller_properties_error import \
+from src.properties.validation.hardware_security_controller_properties_error import \
     HardwareSecurityControllerPropertiesError
 
 
