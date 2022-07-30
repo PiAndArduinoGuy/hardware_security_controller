@@ -7,7 +7,7 @@ class HardwareSecurityControllerCommandLineProperties(HardwareSecurityController
     def __init__(self):
         super().__init__()
         parser = argparse.ArgumentParser()
-        parser.add_argument("--logging_file_location", required=True)
+        parser.add_argument("--logging_file_directory", required=True)
         parser.add_argument("--security_micro_service_host_ip", required=True)
         parser.add_argument("--security_micro_service_host_port", required=True)
         parser.add_argument("--password", required=True)
@@ -23,5 +23,5 @@ class HardwareSecurityControllerCommandLineProperties(HardwareSecurityController
     def set_password(self):
         self._password = self.arguments["password"]
 
-    def set_logging_file_location(self):
-        self._logging_file_location = self.arguments["logging_file_location"]
+    def set_logging_file_directory(self):
+        self._logging_file_directory = self.arguments["logging_file_directory"]
