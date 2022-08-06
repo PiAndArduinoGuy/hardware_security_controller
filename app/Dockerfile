@@ -1,6 +1,4 @@
-FROM navikey/raspbian-bullseye:2022-05-08
-RUN apt update -y
-RUN apt install -y python3 python3-pip raspi-config
+FROM  piandarduinoguy/raspbian-bullseye-python3-pip
 WORKDIR /hardware-security-controller
 COPY src/requirements.txt .
 RUN pip3 install -r requirements.txt
