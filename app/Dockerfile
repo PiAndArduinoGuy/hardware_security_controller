@@ -1,4 +1,4 @@
-FROM  piandarduinoguy/raspbian-bullseye-python3-pip
+FROM  piandarduinoguy/raspbian-bullseye-python3-pip:20220427
 WORKDIR /hardware-security-controller
 COPY src/requirements.txt .
 RUN pip3 install -r requirements.txt
