@@ -1,7 +1,7 @@
 from observer.keypad_observer import KeypadObserver
 from observer.message_observer import MessageObserver
-from properties.hardware_security_controller_command_line_properties import \
-    HardwareSecurityControllerCommandLineProperties
+from properties.hardware_security_controller_environment_variable_properties import \
+    HardwareSecurityControllerEnvironmentVariableProperties
 from properties.hardware_security_controller_properties import HardwareSecurityControllerProperties
 from security_micro_service_client import SecurityMicroServiceClient
 from service.authenticator_service import AuthenticatorService
@@ -12,8 +12,8 @@ from logging_setup import LoggingSetup
 
 if __name__ == '__main__':
     hardware_security_controller_properties: HardwareSecurityControllerProperties = \
-        HardwareSecurityControllerCommandLineProperties()
-    logging_setup = LoggingSetup(hardware_security_controller_properties.get_logging_file_location())
+        HardwareSecurityControllerEnvironmentVariableProperties()
+    logging_setup = LoggingSetup(hardware_security_controller_properties.get_logging_file_directory())
     keypad = KeypadSubject()
     message_subject = MessageSubject()
     security_micro_service_client = SecurityMicroServiceClient(hardware_security_controller_properties,
